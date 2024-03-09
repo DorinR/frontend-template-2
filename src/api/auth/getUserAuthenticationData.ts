@@ -7,7 +7,7 @@ export const getUserAuthenticationData = async () => {
   try {
     const { data } =
       await AxiosClient.post<GetUserAuthenticationDataBackendResponse>(
-        "/auth/getUserData"
+        "/auth/getUserData",
       );
     return {
       userData: data,

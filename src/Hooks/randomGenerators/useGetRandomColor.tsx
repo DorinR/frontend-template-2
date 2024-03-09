@@ -1,14 +1,14 @@
-import randomColor from 'randomcolor'
-import { useEffect, useState } from 'react'
+import randomColor from "randomcolor";
+import { useEffect, useState } from "react";
 
 export const useGetRandomColor = (hue: string) => {
-    const [randomColorHex, setRandomColorHex] = useState<string>('')
+  const [randomColorHex, setRandomColorHex] = useState<string>("");
 
-    useEffect(() => {
-        setRandomColorHex(randomColor({ hue: hue, luminosity: 'light' }))
-    }, [hue])
+  useEffect(() => {
+    setRandomColorHex(randomColor({ hue: hue, luminosity: "light" }));
+  }, [hue]);
 
-    return {
-        color: randomColorHex,
-    }
-}
+  return {
+    color: randomColorHex,
+  };
+};

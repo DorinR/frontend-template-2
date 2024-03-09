@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
     body {
@@ -28,4 +28,4 @@ export const GlobalStyle = createGlobalStyle`
         border: 3px dotted #03B5AA;
         padding: 7px;
     }
-`
+`;

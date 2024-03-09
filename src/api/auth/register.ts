@@ -26,7 +26,7 @@ export const register: FnRegister = async ({
       password: password,
       firstName: firstName,
       lastName: lastName,
-    }
+    },
   );
 
   localStorage.setItem("authToken", data.token);

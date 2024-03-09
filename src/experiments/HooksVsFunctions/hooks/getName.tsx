@@ -1,10 +1,10 @@
-import { useState } from 'react'
+import { useState } from "react";
 
 export const useName = () => {
-    const [name, setName] = useState('dorin')
+  const [name, setName] = useState("dorin");
 
-    return {
-        name: name,
-        setName: setName,
-    }
-}
+  return {
+    name: name,
+    setName: setName,
+  };
+};

@@ -17,7 +17,7 @@ export const login: FnLogin = async ({ email, password }) => {
     {
       email: email,
       password: password,
-    }
+    },
   );
 
   localStorage.setItem("authToken", data.token);
