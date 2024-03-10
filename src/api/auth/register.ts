@@ -1,4 +1,4 @@
-import { BackendAccessPoint } from "../axiosClient";
+import { BackendAccessPoint } from "../backendAccessPoint";
 
 type RegisterBackendResponse = {
   token: string;

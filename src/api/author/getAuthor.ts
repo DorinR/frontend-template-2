@@ -1,7 +1,7 @@
-import { BackendAccessPoint } from "../axiosClient";
+import { BackendAccessPoint } from "../backendAccessPoint";
 
 export const getAuthor = async () => {
-  const { data } = await BackendAccessPoint.get("author/hello");
+  const { data } = await BackendAccessPoint.get("/author/hello");
 
   return data;
 };

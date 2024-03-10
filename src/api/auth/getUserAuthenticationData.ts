@@ -1,4 +1,4 @@
-import { BackendAccessPoint } from "../axiosClient";
+import { BackendAccessPoint } from "../backendAccessPoint";
 import { User } from "../models/User";
 
 type GetUserAuthenticationDataBackendResponse = User;
