@@ -6,7 +6,6 @@ export const BackendAccessPoint = axios.create({
 });
 
 BackendAccessPoint.interceptors.request.use((config) => {
-  // add baseUrl from env vars here in the future
   console.log(process.env);
 
   return config;
