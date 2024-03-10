@@ -1,4 +1,4 @@
-import { AxiosClient } from "../axiosClient";
+import { BackendAccessPoint } from "../axiosClient";
 
 type LoginParams = {
   email: string;
@@ -12,12 +12,12 @@ type FnLoginBackendResponse = {
 };
 
 export const login: FnLogin = async ({ email, password }) => {
-  const { data } = await AxiosClient.post<FnLoginBackendResponse>(
+  const { data } = await BackendAccessPoint.post<FnLoginBackendResponse>(
     "/auth/login",
     {
       email: email,
       password: password,
-    },
+    }
   );
 
   localStorage.setItem("authToken", data.token);

@@ -1,4 +1,4 @@
-import { AxiosClient } from "../axiosClient";
+import { BackendAccessPoint } from "../axiosClient";
 import { User } from "../models/User";
 
 type GetUserAuthenticationDataBackendResponse = User;
@@ -6,8 +6,8 @@ type GetUserAuthenticationDataBackendResponse = User;
 export const getUserAuthenticationData = async () => {
   try {
     const { data } =
-      await AxiosClient.post<GetUserAuthenticationDataBackendResponse>(
-        "/auth/getUserData",
+      await BackendAccessPoint.post<GetUserAuthenticationDataBackendResponse>(
+        "/auth/getUserData"
       );
     return {
       userData: data,

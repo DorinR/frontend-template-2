@@ -1,20 +1,13 @@
 import axios from "axios";
 
-export const AxiosClient = axios.create({
-  baseURL: "https://localhost:8000",
+export const BackendAccessPoint = axios.create({
+  baseURL: process.env.REACT_APP_API_URL,
   headers: { "Access-Control-Allow-Origin": "*" },
 });
 
-AxiosClient.interceptors.request.use((config) => {
-  const token = localStorage.getItem("authToken");
-  if (token) {
-    if (config.headers) {
-      config.headers["Authorization"] = `Bearer ${token}`;
-    }
-  } else {
-    if (config.headers) {
-      delete config.headers["Authorization"];
-    }
-  }
+BackendAccessPoint.interceptors.request.use((config) => {
+  // add baseUrl from env vars here in the future
+  console.log(process.env);
+
   return config;
 });

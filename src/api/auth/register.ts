@@ -1,4 +1,4 @@
-import { AxiosClient } from "../axiosClient";
+import { BackendAccessPoint } from "../axiosClient";
 
 type RegisterBackendResponse = {
   token: string;
@@ -19,14 +19,14 @@ export const register: FnRegister = async ({
   firstName,
   lastName,
 }: RegisterParams) => {
-  const { data } = await AxiosClient.post<RegisterBackendResponse>(
+  const { data } = await BackendAccessPoint.post<RegisterBackendResponse>(
     "/auth/register",
     {
       email: emailAddress,
       password: password,
       firstName: firstName,
       lastName: lastName,
-    },
+    }
   );
 
   localStorage.setItem("authToken", data.token);
