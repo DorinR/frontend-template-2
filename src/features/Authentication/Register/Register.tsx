@@ -1,14 +1,12 @@
 import { Button } from "@blueprintjs/core";
 import { Form, Formik } from "formik";
 import { useNavigate } from "react-router-dom";
-import { CenteredCard } from "../../../components/Card/CenteredCard";
-import { TextInput } from "../../../components/Form/Input/TextInput";
 import * as yup from "yup";
 import { useRegister } from "../../../apiHooks/auth/useRegister";
+import { CenteredCard } from "../../../components/Card/CenteredCard";
+import { TextInput } from "../../../components/Form/Input/TextInput";
 
 const RegisterSchema = yup.object().shape({
-  firstName: yup.string().required("This field is required"),
-  lastName: yup.string().required("This field is required"),
   emailAddress: yup.string().email().required("This field is required"),
   password: yup
     .string()
@@ -29,8 +27,6 @@ export const Register = () => {
         initialValues={{
           emailAddress: "",
           password: "",
-          firstName: "",
-          lastName: "",
         }}
         onSubmit={async (values) => {
           try {
@@ -44,18 +40,6 @@ export const Register = () => {
       >
         {(props) => (
           <Form>
-            <TextInput
-              label="First name"
-              placeholder="enter your first name"
-              name="firstName"
-              onChangeHandler={props.handleChange}
-            />
-            <TextInput
-              label="Last name"
-              placeholder="enter your last name"
-              name="lastName"
-              onChangeHandler={props.handleChange}
-            />
             <TextInput
               label="Email address"
               placeholder="enter your email address"
@@ -76,7 +60,6 @@ export const Register = () => {
               type="password"
               onChangeHandler={props.handleChange}
             />
-
             <Button type="submit" intent="primary" fill large>
               Create account
             </Button>

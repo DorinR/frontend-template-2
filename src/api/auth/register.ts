@@ -1,35 +1,29 @@
 import { BackendAccessPoint } from "../backendAccessPoint";
 
 type RegisterBackendResponse = {
-  token: string;
+  userId: string;
 };
 
 type RegisterParams = {
   emailAddress: string;
   password: string;
-  firstName: string;
-  lastName: string;
 };
 
-type FnRegister = (params: RegisterParams) => Promise<{ token: string }>;
+type FnRegister = (params: RegisterParams) => Promise<{ userId: string }>;
 
 export const register: FnRegister = async ({
   emailAddress,
   password,
-  firstName,
-  lastName,
 }: RegisterParams) => {
   const { data } = await BackendAccessPoint.post<RegisterBackendResponse>(
-    "/auth/register",
+    "/user/register",
     {
       email: emailAddress,
       password: password,
-      firstName: firstName,
-      lastName: lastName,
     }
   );
 
-  localStorage.setItem("authToken", data.token);
+  // localStorage.setItem("authToken", data.token);
 
-  return { token: data.token };
+  return { userId: data.userId };
 };
