@@ -23,7 +23,5 @@ export const register: FnRegister = async ({
     }
   );
 
-  // localStorage.setItem("authToken", data.token);
-
   return { userId: data.userId };
 };
