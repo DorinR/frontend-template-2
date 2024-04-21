@@ -1,7 +1,6 @@
 import { Button } from "@blueprintjs/core";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
 import {
   authCacheKey,
   useGetUserAuthenticationData,
@@ -43,7 +42,7 @@ export const LoginSwitch = () => {
             large
             onClick={() => {
               localStorage.removeItem("authToken");
-              queryClient.invalidateQueries(authCacheKey);
+              queryClient.invalidateQueries({ queryKey: [authCacheKey] });
             }}
           >
             Logout
@@ -53,7 +52,3 @@ export const LoginSwitch = () => {
     );
   }
 };
-
-const LoginButtonsContainer = styled.div`
-  float: right;
-`;

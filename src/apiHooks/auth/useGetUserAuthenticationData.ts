@@ -1,8 +1,11 @@
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import { getUserAuthenticationData } from "../../api/auth/getUserAuthenticationData";
 
 export const authCacheKey = "userauth";
 
 export const useGetUserAuthenticationData = () => {
-  return useQuery(authCacheKey, getUserAuthenticationData);
+  return useQuery({
+    queryKey: [authCacheKey],
+    queryFn: getUserAuthenticationData,
+  });
 };
