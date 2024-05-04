@@ -6,7 +6,5 @@ export const BackendAccessPoint = axios.create({
 });
 
 BackendAccessPoint.interceptors.request.use((config) => {
-  console.log(process.env);
-
   return config;
 });

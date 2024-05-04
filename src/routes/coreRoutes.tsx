@@ -1,21 +1,22 @@
-import { Routes, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { App } from "../App";
+import { Accordion, Section } from "../components/Accordion/Accordion";
+import { Card } from "../components/Card/Card";
+import { CommentsSection } from "../components/CommentsSection/CommentsSection";
+import { COMMENTS_DATA } from "../components/CommentsSection/mockData";
+import { FullScreenOverlay } from "../components/FullScreenOverlay/FullScreenOverlay";
+import { IconBar } from "../components/IconBar/IconBar";
+import { KanbanBoard } from "../components/KanbanBoard/KanbanBoard";
+import { Tabs } from "../components/Tabs/Tabs";
+import { ThreeColorSquare } from "../components/ThreeColorSquare/ThreeColorSquare";
+import { DragAndDropExample } from "../experiments/DndExample/DragAndDropExample";
+import { HooksVsFunctions } from "../experiments/HooksVsFunctions/HooksVsFunctions";
 import { Account } from "../features/Account/Account";
 import { Appointments } from "../features/Appointments/Appointments";
-import { MainLayout } from "../features/Layout/MainLayout";
 import { Login } from "../features/Authentication/Login/Login";
 import { Register } from "../features/Authentication/Register/Register";
-import { IconBar } from "../components/IconBar/IconBar";
-import { Accordion, Section } from "../components/Accordion/Accordion";
-import { Tabs } from "../components/Tabs/Tabs";
-import { FullScreenOverlay } from "../components/FullScreenOverlay/FullScreenOverlay";
-import { Card } from "../components/Card/Card";
-import { KanbanBoard } from "../components/KanbanBoard/KanbanBoard";
-import { ThreeColorSquare } from "../components/ThreeColorSquare/ThreeColorSquare";
-import { COMMENTS_DATA } from "../components/CommentsSection/mockData";
-import { CommentsSection } from "../components/CommentsSection/CommentsSection";
-import { HooksVsFunctions } from "../experiments/HooksVsFunctions/HooksVsFunctions";
-import { DragAndDropExample } from "../experiments/DndExample/DragAndDropExample";
+import { MainLayout } from "../features/Layout/MainLayout";
+import { Reminders } from "../features/Reminders/Reminders";
 
 export const ApplicationRoutes = () => {
   return (
@@ -24,6 +25,7 @@ export const ApplicationRoutes = () => {
         <Route path="/" element={<App />} />
         <Route path="/account" element={<Account />} />
         <Route path="/appointments" element={<Appointments />} />
+        <Route path="/reminders" element={<Reminders />} />
         <Route path="/login" element={<Login />} />
         <Route path="/create-account" element={<Register />} />
         {/* UI Component Routes */}
