@@ -2,7 +2,7 @@ import { Button } from "@blueprintjs/core";
 import React, { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { useIsMobile } from "../../Hooks/mobile/useIsMobile";
+import { useIsMobile } from "../../hooks/mobile/useIsMobile";
 import { HamburgerMenu } from "../../components/HamburgerMenu/HamburgerMenu";
 import { LoginSwitch } from "./LoginSwitch";
 

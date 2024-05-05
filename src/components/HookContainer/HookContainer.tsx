@@ -1,4 +1,4 @@
-import { useBatteryLevel } from "../../Hooks/battery/useBatteryLevel";
+import { useBatteryLevel } from "../../hooks/battery/useBatteryLevel";
 
 export const HookContainer = () => {
   const { batteryLevel, isLoading } = useBatteryLevel();

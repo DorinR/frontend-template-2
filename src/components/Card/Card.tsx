@@ -1,7 +1,7 @@
 import { Tag } from "@blueprintjs/core";
 import styled from "styled-components";
-import { useLoremIpsum } from "../../Hooks/randomGenerators/useLoremIpsum";
-import { useGetRandomColor } from "../../Hooks/randomGenerators/useGetRandomColor";
+import { useLoremIpsum } from "../../hooks/randomGenerators/useLoremIpsum";
+import { useGetRandomColor } from "../../hooks/randomGenerators/useGetRandomColor";
 
 export const Card = ({
   title,
