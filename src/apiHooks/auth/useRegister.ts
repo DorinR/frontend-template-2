@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { register } from "../../api/auth/register";
+import { register } from "../../api/user/register";
 import { authCacheKey } from "./useGetUserAuthenticationData";
 
 export const useRegister = () => {

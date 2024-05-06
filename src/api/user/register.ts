@@ -2,6 +2,7 @@ import { BackendAccessPoint } from "../backendAccessPoint";
 
 type RegisterBackendResponse = {
   userId: string;
+  token: string;
 };
 
 type RegisterParams = {
@@ -22,6 +23,8 @@ export const register: FnRegister = async ({
       password: password,
     }
   );
+
+  localStorage.setItem('jwt_token', data.token)
 
   return { userId: data.userId };
 };

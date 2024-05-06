@@ -6,5 +6,13 @@ export const BackendAccessPoint = axios.create({
 });
 
 BackendAccessPoint.interceptors.request.use((config) => {
+  let token = localStorage.getItem("jwt_token");
+
+  if(token !== null) {
+    if(config.headers){
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+  }
+
   return config;
 });
