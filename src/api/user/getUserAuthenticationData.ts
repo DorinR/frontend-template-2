@@ -7,7 +7,7 @@ export const getUserAuthenticationData = async () => {
   try {
     const { data } =
       await BackendAccessPoint.post<GetUserAuthenticationDataBackendResponse>(
-        "/auth/getUserData"
+        "/user/getUserData"
       );
     return {
       userData: data,

@@ -1,18 +1,19 @@
 import { Button } from "@blueprintjs/core";
-import { useQueryClient } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
-import {
-  authCacheKey,
-  useGetUserAuthenticationData,
-} from "../../apiHooks/auth/useGetUserAuthenticationData";
+import { AuthStateContext } from "../../context/AuthStateContext";
+import { useContext } from "react";
 
 export const LoginSwitch = () => {
-  const { data } = useGetUserAuthenticationData();
-  const queryClient = useQueryClient();
+  const authContext = useContext(AuthStateContext);
 
-  if (!data) return null;
+  console.log("authContext being retrieved from the AuthStateContext");
+  console.log(authContext);
 
-  if (!data.userData.id) {
+  if (!authContext) return null;
+
+  const { token, setToken, clearToken } = authContext;
+
+  if (!token) {
     return (
       <>
         <Link to="/login">
@@ -41,8 +42,7 @@ export const LoginSwitch = () => {
             minimal
             large
             onClick={() => {
-              localStorage.removeItem("authToken");
-              queryClient.invalidateQueries({ queryKey: [authCacheKey] });
+              clearToken();
             }}
           >
             Logout

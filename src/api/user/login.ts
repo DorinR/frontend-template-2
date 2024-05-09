@@ -5,20 +5,21 @@ type LoginParams = {
   password: string;
 };
 
-type FnLogin = (params: LoginParams) => Promise<{ token: string }>;
+type FnLogin = (params: LoginParams) => Promise<{ userId: string, token: string }>;
 
 type FnLoginBackendResponse = {
   token: string;
+  userId: string;
 };
 
 export const login: FnLogin = async ({ email, password }) => {
   const { data } = await BackendAccessPoint.post<FnLoginBackendResponse>(
-    "/auth/login",
+    "/user/login",
     {
       email: email,
       password: password,
     }
   );
 
-  return { token: data.token };
+  return { userId: data.userId, token: data.token };
 };

@@ -10,7 +10,9 @@ type RegisterParams = {
   password: string;
 };
 
-type FnRegister = (params: RegisterParams) => Promise<{ userId: string }>;
+type FnRegister = (
+  params: RegisterParams,
+) => Promise<{ userId: string; token: string }>;
 
 export const register: FnRegister = async ({
   emailAddress,
@@ -21,10 +23,8 @@ export const register: FnRegister = async ({
     {
       email: emailAddress,
       password: password,
-    }
+    },
   );
 
-  localStorage.setItem('jwt_token', data.token)
-
-  return { userId: data.userId };
+  return { token: data.token, userId: data.userId };
 };

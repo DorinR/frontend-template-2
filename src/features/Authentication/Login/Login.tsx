@@ -1,10 +1,12 @@
 import { Button } from "@blueprintjs/core";
 import { Form, Formik } from "formik";
 import { useNavigate } from "react-router-dom";
-import { useLogin } from "../../../apiHooks/auth/useLogin";
+import { useLogin } from "../../../apiHooks/user/useLogin";
 import { CenteredCard } from "../../../components/Card/CenteredCard";
 import { TextInput } from "../../../components/Form/Input/TextInput";
 import * as yup from "yup";
+import { useContext } from "react";
+import { AuthStateContext } from "../../../context/AuthStateContext";
 
 const LoginSchema = yup.object().shape({
   email: yup
@@ -20,6 +22,11 @@ const LoginSchema = yup.object().shape({
 export const Login = () => {
   const login = useLogin();
   const navigate = useNavigate();
+  const authStateContext = useContext(AuthStateContext);
+
+  if (!authStateContext) return null;
+
+  const { setToken } = authStateContext;
 
   return (
     <CenteredCard title="login">
@@ -27,7 +34,8 @@ export const Login = () => {
         initialValues={{ email: "", password: "" }}
         onSubmit={async (values) => {
           try {
-            await login(values);
+            const { userId, token } = await login(values);
+            setToken(token);
             navigate("/");
           } catch {
             console.log("error");
