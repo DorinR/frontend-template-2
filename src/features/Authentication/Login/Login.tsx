@@ -20,7 +20,7 @@ const LoginSchema = yup.object().shape({
 });
 
 export const Login = () => {
-  const login = useLogin();
+  const { login, isPending } = useLogin();
   const navigate = useNavigate();
   const authStateContext = useContext(AuthStateContext);
 
@@ -34,7 +34,7 @@ export const Login = () => {
         initialValues={{ email: "", password: "" }}
         onSubmit={async (values) => {
           try {
-            const { userId, token } = await login(values);
+            const { token } = await login(values);
             setToken(token);
             navigate("/");
           } catch {
@@ -58,7 +58,13 @@ export const Login = () => {
               type="password"
               onChangeHandler={props.handleChange}
             />
-            <Button type="submit" intent="primary" fill large>
+            <Button
+              type="submit"
+              intent="primary"
+              fill
+              large
+              loading={isPending}
+            >
               Login
             </Button>
           </Form>

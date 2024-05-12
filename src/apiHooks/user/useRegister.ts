@@ -5,11 +5,11 @@ import { authCacheKey } from "./useGetUserAuthenticationData";
 export const useRegister = () => {
   const queryClient = useQueryClient();
 
-  const { mutateAsync } = useMutation({
+  const { mutateAsync, isPending } = useMutation({
     mutationFn: register,
     onSettled: () =>
       queryClient.invalidateQueries({ queryKey: [authCacheKey] }),
   });
 
-  return mutateAsync;
+  return { register: mutateAsync, isPending };
 };

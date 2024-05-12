@@ -20,7 +20,7 @@ const RegisterSchema = yup.object().shape({
 });
 
 export const Register = () => {
-  const register = useRegister();
+  const { register, isPending } = useRegister();
   const navigate = useNavigate();
   const authStateContext = useContext(AuthStateContext);
 
@@ -68,7 +68,13 @@ export const Register = () => {
               type="password"
               onChangeHandler={props.handleChange}
             />
-            <Button type="submit" intent="primary" fill large>
+            <Button
+              type="submit"
+              intent="primary"
+              fill
+              large
+              loading={isPending}
+            >
               Create account
             </Button>
           </Form>

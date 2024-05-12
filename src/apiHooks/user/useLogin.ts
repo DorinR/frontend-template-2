@@ -5,7 +5,7 @@ import { authCacheKey } from "./useGetUserAuthenticationData";
 export const useLogin = () => {
   const queryClient = useQueryClient();
 
-  const { mutateAsync } = useMutation({
+  const { mutateAsync, isPending } = useMutation({
     mutationFn: login,
     onSettled: () =>
       queryClient.invalidateQueries({
@@ -13,5 +13,5 @@ export const useLogin = () => {
       }),
   });
 
-  return mutateAsync;
+  return { login: mutateAsync, isPending };
 };
