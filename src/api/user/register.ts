@@ -1,4 +1,4 @@
-import { BackendAccessPoint } from "../backendAccessPoint";
+import { backendAccessPoint } from "../backendAccessPoint";
 
 type RegisterBackendResponse = {
   userId: string;
@@ -18,7 +18,7 @@ export const register: FnRegister = async ({
   emailAddress,
   password,
 }: RegisterParams) => {
-  const { data } = await BackendAccessPoint.post<RegisterBackendResponse>(
+  const { data } = await backendAccessPoint.post<RegisterBackendResponse>(
     "/user/register",
     {
       email: emailAddress,

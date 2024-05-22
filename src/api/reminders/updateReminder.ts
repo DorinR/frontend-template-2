@@ -1,4 +1,4 @@
-import { BackendAccessPoint } from "../backendAccessPoint";
+import { backendAccessPoint } from "../backendAccessPoint";
 
 type UpdateReminderProps = {
   reminderId: string;
@@ -9,12 +9,12 @@ export const updateReminder = async ({
   reminderId,
   state,
 }: UpdateReminderProps) => {
-  const { data } = await BackendAccessPoint.put<{ reminderId: string }>(
+  const { data } = await backendAccessPoint.put<{ reminderId: string }>(
     "reminders/",
     {
       reminderId,
       state,
-    }
+    },
   );
 
   return data.reminderId;

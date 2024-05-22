@@ -1,7 +1,7 @@
 import { useFormikContext } from "formik";
 import React from "react";
 
-export const SubmitButton = ({ children }: { children: React.ReactNode }) => {
+export const SubmitButton = ({ label }: { label?: string }) => {
   const { submitForm } = useFormikContext();
 
   return (
@@ -10,7 +10,7 @@ export const SubmitButton = ({ children }: { children: React.ReactNode }) => {
         submitForm();
       }}
     >
-      {children}
+      {label ?? "Submit"}
     </button>
   );
 };

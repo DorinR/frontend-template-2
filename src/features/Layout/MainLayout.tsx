@@ -31,9 +31,9 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
                 Home
               </Button>
             </Link>
-            <Link to="/reminders">
+            <Link to="/journal">
               <Button icon="add" minimal large>
-                Reminders
+                Journal
               </Button>
             </Link>
           </span>

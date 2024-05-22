@@ -1,4 +1,4 @@
-import { BackendAccessPoint } from "../backendAccessPoint";
+import { backendAccessPoint } from "../backendAccessPoint";
 import { User } from "../models/User";
 
 type GetUserAuthenticationDataBackendResponse = User;
@@ -6,8 +6,8 @@ type GetUserAuthenticationDataBackendResponse = User;
 export const getUserAuthenticationData = async () => {
   try {
     const { data } =
-      await BackendAccessPoint.post<GetUserAuthenticationDataBackendResponse>(
-        "/user/getUserData"
+      await backendAccessPoint.post<GetUserAuthenticationDataBackendResponse>(
+        "/user/getUserData",
       );
     return {
       userData: data,

@@ -41,7 +41,7 @@ export const Reminders = () => {
       >
         <>
           <input name="title" />
-          <SubmitButton>add reminder</SubmitButton>
+          <SubmitButton label={"add reminders"} />
         </>
       </Formik>
     </div>

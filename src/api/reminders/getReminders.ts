@@ -1,4 +1,4 @@
-import { BackendAccessPoint } from "../backendAccessPoint";
+import { backendAccessPoint } from "../backendAccessPoint";
 
 type Reminder = {
   id: string;
@@ -7,8 +7,8 @@ type Reminder = {
 };
 
 export const getReminders = async () => {
-  const { data } = await BackendAccessPoint.get<{ reminders: Reminder[] }>(
-    "/reminders/"
+  const { data } = await backendAccessPoint.get<{ reminders: Reminder[] }>(
+    "/reminders/",
   );
 
   return data.reminders;
