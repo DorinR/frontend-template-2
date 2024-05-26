@@ -1,9 +1,14 @@
 import { Field, Formik } from "formik";
 import { useAddThought } from "../../apiHooks/thought/useAddThought";
 import { SubmitButton } from "../Forms/SubmitButton";
+import { useGetThoughts } from "../../apiHooks/thought/useGetThoughts";
+import { Thoughts } from "./Thoughts";
 
 export const Journal = () => {
   const addThought = useAddThought();
+  const { data: thoughtsData } = useGetThoughts();
+
+  if (!thoughtsData) return null;
 
   return (
     <>
@@ -22,6 +27,7 @@ export const Journal = () => {
           <SubmitButton label={"Submit"} />
         </>
       </Formik>
+      <Thoughts />
     </>
   );
 };
