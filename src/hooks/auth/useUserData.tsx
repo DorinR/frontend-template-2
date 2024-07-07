@@ -1,4 +1,4 @@
-import {useMemo, useState} from "react";
+import { useMemo, useState } from "react";
 
 /**
  * Note for tomorrow: there is probably some react pattern for this scenario
@@ -6,27 +6,27 @@ import {useMemo, useState} from "react";
  * localstorage changes. Fun exploration to come up with a solution for this.
  */
 export const useUserData = () => {
-    const [jwt, setJwt] = useState<string | null>(localStorage.getItem('jwt_token'));
+  const [jwt, setJwt] = useState<string | null>(
+    localStorage.getItem("jwt_token"),
+  );
 
-    const setToken = useMemo(() => {
-        return (token: string) => {
-            console.log('setting token ...')
-            localStorage.setItem('jwt_token', token)
-            setJwt(token)
-        }
-    }, [])
+  const setToken = useMemo(() => {
+    return (token: string) => {
+      localStorage.setItem("jwt_token", token);
+      setJwt(token);
+    };
+  }, []);
 
-    const clearToken = useMemo(() => {
-        return () => {
-            console.log('clearning token ...')
-            localStorage.removeItem('jwt_token');
-            setJwt(null);
-        }
-    }, [])
+  const clearToken = useMemo(() => {
+    return () => {
+      localStorage.removeItem("jwt_token");
+      setJwt(null);
+    };
+  }, []);
 
-    return {
-        token: jwt,
-        setToken,
-        clearToken
-    }
-}
+  return {
+    token: jwt,
+    setToken,
+    clearToken,
+  };
+};
