@@ -6,9 +6,6 @@ import { useContext } from "react";
 export const LoginSwitch = () => {
   const authContext = useContext(AuthStateContext);
 
-  console.log("authContext being retrieved from the AuthStateContext");
-  console.log(authContext);
-
   if (!authContext) return null;
 
   const { token, setToken, clearToken } = authContext;
