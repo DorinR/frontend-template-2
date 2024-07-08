@@ -1,16 +1,17 @@
+import { Button } from "@blueprintjs/core";
 import { useFormikContext } from "formik";
-import React from "react";
 
 export const SubmitButton = ({ label }: { label?: string }) => {
   const { submitForm } = useFormikContext();
 
   return (
-    <button
+    <Button
+      intent="primary"
       onClick={() => {
         submitForm();
       }}
     >
       {label ?? "Submit"}
-    </button>
+    </Button>
   );
 };

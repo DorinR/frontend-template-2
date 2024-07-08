@@ -1,4 +1,7 @@
+import styled from "styled-components";
 import { useGetThoughts } from "../../apiHooks/thought/useGetThoughts";
+import { CreateThought } from "./CreateThought";
+import { Thought } from "./Thought";
 
 export const Thoughts = () => {
   const { data: thoughtsData } = useGetThoughts();
@@ -6,10 +9,19 @@ export const Thoughts = () => {
   if (!thoughtsData) return null;
 
   return (
-    <ul>
+    <ThoughtsContainer>
       {thoughtsData.thoughts.map((t) => {
-        return <li>{t.content}</li>;
+        return <Thought key={t.id} content={t.content} />;
       })}
-    </ul>
+      <CreateThought />
+    </ThoughtsContainer>
   );
 };
+
+const ThoughtsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  padding: 0px 20%;
+`;
