@@ -1,4 +1,4 @@
-import { Button, Icon } from "@blueprintjs/core";
+import { Button } from "@radix-ui/themes";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -23,11 +23,6 @@ export const FullScreenOverlay = () => {
                 </MenuItem>
               </Link>
             </MenuContainer>
-            <StyledIcon
-              icon="cross"
-              size={25}
-              onClick={() => setIsExpanded(false)}
-            />
           </>
         )}
       </Overlay>
@@ -55,19 +50,6 @@ const MenuItem = styled.div`
     color: black;
     background-color: aliceblue;
     opacity: 0.3;
-  }
-`;
-
-const StyledIcon = styled(Icon)`
-  position: absolute;
-  top: 20px;
-  right: 20px;
-
-  color: grey;
-  padding: 10px;
-
-  &:hover {
-    color: white;
   }
 `;
 

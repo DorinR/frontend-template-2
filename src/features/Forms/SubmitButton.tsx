@@ -1,4 +1,4 @@
-import { Button } from "@blueprintjs/core";
+import { Button } from "@radix-ui/themes";
 import { useFormikContext } from "formik";
 
 export const SubmitButton = ({ label }: { label?: string }) => {
@@ -6,7 +6,6 @@ export const SubmitButton = ({ label }: { label?: string }) => {
 
   return (
     <Button
-      intent="primary"
       onClick={() => {
         submitForm();
       }}

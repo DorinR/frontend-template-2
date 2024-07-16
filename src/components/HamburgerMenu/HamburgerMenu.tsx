@@ -1,4 +1,4 @@
-import { Button } from "@blueprintjs/core";
+import { Button } from "@radix-ui/themes";
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
 
@@ -11,7 +11,7 @@ export const HamburgerMenu = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <HamburgerMenuContainer>
-      <Button onClick={toggleOptionsVisibility} icon="menu" large></Button>
+      <Button onClick={toggleOptionsVisibility}></Button>
       <OptionsContainer isVisible={isExpanded}>{children}</OptionsContainer>
     </HamburgerMenuContainer>
   );

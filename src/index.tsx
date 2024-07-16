@@ -1,3 +1,5 @@
+import { Theme } from "@radix-ui/themes";
+import "@radix-ui/themes/styles.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import React from "react";
 import ReactDOM from "react-dom/client";
@@ -19,10 +21,12 @@ root.render(
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
         <GlobalStyle />
-        <Routes>
-          <Route path="/*" element={<ApplicationRoutes />} />
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
+        <Theme>
+          <Routes>
+            <Route path="/*" element={<ApplicationRoutes />} />
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+        </Theme>
       </QueryClientProvider>
     </BrowserRouter>
   </React.StrictMode>

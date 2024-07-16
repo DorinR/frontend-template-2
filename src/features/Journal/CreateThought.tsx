@@ -1,4 +1,4 @@
-import { Card } from "@blueprintjs/core";
+import { Box } from "@radix-ui/themes";
 import { Formik } from "formik";
 import { get } from "lodash";
 import styled from "styled-components";
@@ -10,7 +10,7 @@ export const CreateThought = () => {
   const createThought = useAddThought();
 
   return (
-    <Card>
+    <Box>
       <Formik
         initialValues={{ thought: "" }}
         onSubmit={async (values) => {
@@ -29,11 +29,11 @@ export const CreateThought = () => {
         }}
       >
         <Stack>
-          <FormInput name="thought" />
+          <FormInput name="thought" label="new thought" />
           <SubmitButton label="Create new entry" />
         </Stack>
       </Formik>
-    </Card>
+    </Box>
   );
 };
 

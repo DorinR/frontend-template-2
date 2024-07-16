@@ -1,9 +1,9 @@
-import { Card } from "@blueprintjs/core";
+import { Box } from "@radix-ui/themes";
 
 type ThoughtProps = {
   content: string;
 };
 
 export const Thought = ({ content }: ThoughtProps) => {
-  return <Card>{content}</Card>;
+  return <Box>{content}</Box>;
 };

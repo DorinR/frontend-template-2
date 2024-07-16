@@ -1,4 +1,4 @@
-import { Card, Elevation } from "@blueprintjs/core";
+import { Card } from "@radix-ui/themes";
 import React from "react";
 import styled from "styled-components";
 
@@ -12,7 +12,7 @@ export const CenteredCard = ({
   return (
     <LoginLandingPageContainer>
       <StyledH1>{title}</StyledH1>
-      <Card elevation={Elevation.TWO}>
+      <Card>
         <UserTypesButtonsContainer>{children}</UserTypesButtonsContainer>
       </Card>
     </LoginLandingPageContainer>

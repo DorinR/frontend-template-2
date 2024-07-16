@@ -1,12 +1,12 @@
-import { Button } from "@blueprintjs/core";
+import { Button } from "@radix-ui/themes";
 import { Form, Formik } from "formik";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { useRegister } from "../../../apiHooks/user/useRegister";
 import { CenteredCard } from "../../../components/Card/CenteredCard";
-import { TextInput } from "../../../components/Form/Input/TextInput";
-import { useContext } from "react";
 import { AuthStateContext } from "../../../context/AuthStateContext";
+import { FormInput } from "../../Forms/FormInput";
 
 const RegisterSchema = yup.object().shape({
   emailAddress: yup.string().email().required("This field is required"),
@@ -48,33 +48,14 @@ export const Register = () => {
       >
         {(props) => (
           <Form>
-            <TextInput
-              label="Email address"
-              placeholder="enter your email address"
-              name="emailAddress"
-              onChangeHandler={props.handleChange}
-            />
-            <TextInput
-              label="Password"
-              placeholder="enter your password"
-              name="password"
-              type="password"
-              onChangeHandler={props.handleChange}
-            />
-            <TextInput
+            <FormInput label="Email address" name="emailAddress" />
+            <FormInput label="Password" name="password" isPassword />
+            <FormInput
               label="Confirm password"
-              placeholder="enter your password again"
               name="passwordConfirm"
-              type="password"
-              onChangeHandler={props.handleChange}
+              isPassword
             />
-            <Button
-              type="submit"
-              intent="primary"
-              fill
-              large
-              loading={isPending}
-            >
+            <Button type="submit" loading={isPending}>
               Create account
             </Button>
           </Form>

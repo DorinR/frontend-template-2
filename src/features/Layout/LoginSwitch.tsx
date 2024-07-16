@@ -1,7 +1,7 @@
-import { Button } from "@blueprintjs/core";
+import { Button } from "@radix-ui/themes";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthStateContext } from "../../context/AuthStateContext";
-import { useContext } from "react";
 
 export const LoginSwitch = () => {
   const authContext = useContext(AuthStateContext);
@@ -14,14 +14,10 @@ export const LoginSwitch = () => {
     return (
       <>
         <Link to="/login">
-          <Button icon="log-in" minimal large>
-            Login
-          </Button>
+          <Button>Login</Button>
         </Link>
         <Link to="/create-account">
-          <Button icon="new-person" minimal large>
-            Create Account
-          </Button>
+          <Button>Create Account</Button>
         </Link>
       </>
     );
@@ -29,15 +25,10 @@ export const LoginSwitch = () => {
     return (
       <>
         <Link to="/account">
-          <Button icon="user" minimal large>
-            Account
-          </Button>
+          <Button>Account</Button>
         </Link>
         <Link to="/">
           <Button
-            icon="log-out"
-            minimal
-            large
             onClick={() => {
               clearToken();
             }}

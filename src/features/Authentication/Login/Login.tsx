@@ -1,12 +1,12 @@
-import { Button } from "@blueprintjs/core";
+import { Button } from "@radix-ui/themes";
 import { Form, Formik } from "formik";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import * as yup from "yup";
 import { useLogin } from "../../../apiHooks/user/useLogin";
 import { CenteredCard } from "../../../components/Card/CenteredCard";
-import { TextInput } from "../../../components/Form/Input/TextInput";
-import * as yup from "yup";
-import { useContext } from "react";
 import { AuthStateContext } from "../../../context/AuthStateContext";
+import { FormInput } from "../../Forms/FormInput";
 
 const LoginSchema = yup.object().shape({
   email: yup
@@ -45,26 +45,18 @@ export const Login = () => {
       >
         {(props) => (
           <Form>
-            <TextInput
+            <FormInput
               label="Email Address"
               placeholder="enter your email address"
               name="email"
-              onChangeHandler={props.handleChange}
             />
-            <TextInput
+            <FormInput
               label="Password"
               placeholder="enter your password"
               name="password"
-              type="password"
-              onChangeHandler={props.handleChange}
+              isPassword
             />
-            <Button
-              type="submit"
-              intent="primary"
-              fill
-              large
-              loading={isPending}
-            >
+            <Button type="submit" loading={isPending}>
               Login
             </Button>
           </Form>

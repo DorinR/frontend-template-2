@@ -1,12 +1,12 @@
-import { Button } from "@blueprintjs/core";
+import { Button } from "@radix-ui/themes";
 import React, { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { useIsMobile } from "../../hooks/mobile/useIsMobile";
 import { HamburgerMenu } from "../../components/HamburgerMenu/HamburgerMenu";
-import { LoginSwitch } from "./LoginSwitch";
 import { AuthStateContext } from "../../context/AuthStateContext";
 import { useUserData } from "../../hooks/auth/useUserData";
+import { useIsMobile } from "../../hooks/mobile/useIsMobile";
+import { LoginSwitch } from "./LoginSwitch";
 
 type MainLayoutProps = {
   children: ReactNode;
@@ -27,14 +27,10 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
         <ResponsiveNavbar>
           <span>
             <Link to="/">
-              <Button icon="home" minimal large>
-                Home
-              </Button>
+              <Button>Home</Button>
             </Link>
             <Link to="/journal">
-              <Button icon="add" minimal large>
-                Journal
-              </Button>
+              <Button>Journal</Button>
             </Link>
           </span>
           <span>
