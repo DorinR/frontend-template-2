@@ -2,6 +2,7 @@ import { Text, TextField } from "@radix-ui/themes";
 import { ChangeEventHandler } from "react";
 
 type TextInputProps = {
+  name: string;
   label: string;
   value: string;
   setValue: ChangeEventHandler<HTMLInputElement>;
@@ -10,6 +11,7 @@ type TextInputProps = {
 };
 
 export const TextInput = ({
+  name,
   value,
   setValue,
   label,
@@ -20,6 +22,7 @@ export const TextInput = ({
     <>
       <Text as="label">{label}</Text>
       <TextField.Root
+        name={name}
         placeholder={placeholder ?? undefined}
         value={value}
         onChange={setValue}

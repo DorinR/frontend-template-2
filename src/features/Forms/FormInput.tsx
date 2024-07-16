@@ -19,11 +19,12 @@ export const FormInput = ({
   return (
     <>
       <TextInput
+        name={name}
         value={field.value}
         setValue={field.onChange}
         label={label}
         placeholder={placeholder}
-        isPassword
+        isPassword={isPassword ?? false}
       />
       {meta.error && <StyledSpan>{meta.error}</StyledSpan>}
     </>
