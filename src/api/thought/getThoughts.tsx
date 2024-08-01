@@ -8,12 +8,14 @@ type GetThoughtsApiResponse = {
   }[];
 };
 
+export type ThoughtDto = {
+  id: string;
+  content: string;
+  dateCreated: string;
+};
+
 type GetThoughtsResponse = {
-  thoughts: {
-    id: string;
-    content: string;
-    dateCreated: string;
-  }[];
+  thoughts: ThoughtDto[];
 };
 
 export const getThoughts = async () => {

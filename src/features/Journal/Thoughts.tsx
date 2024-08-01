@@ -11,7 +11,7 @@ export const Thoughts = () => {
   return (
     <ThoughtsContainer>
       {thoughtsData.thoughts.map((t) => {
-        return <Thought key={t.id} content={t.content} />;
+        return <Thought key={t.id} thought={t} />;
       })}
       <CreateThought />
     </ThoughtsContainer>
