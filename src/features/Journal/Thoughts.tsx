@@ -10,12 +10,12 @@ export const Thoughts = () => {
 
   if (!thoughtsData) return null;
 
+  console.log(thoughtsData);
+
   const thoughtsGroupedByDay = groupBy(
     thoughtsData.thoughts,
     (thought) => thought.dateCreated.split("T")[0]
   );
-
-  console.log(thoughtsGroupedByDay);
 
   return (
     <ThoughtsContainer>

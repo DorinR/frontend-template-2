@@ -45,5 +45,12 @@ export const getThoughts = async () => {
       : [],
   };
 
+  mappedData.thoughts.sort((a: ThoughtDto, b: ThoughtDto) => {
+    const first = new Date(a.dateCreated).getTime();
+    const second = new Date(b.dateCreated).getTime();
+
+    return second - first;
+  });
+
   return mappedData;
 };
