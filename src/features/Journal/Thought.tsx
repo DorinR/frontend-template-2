@@ -35,7 +35,7 @@ export const Thought = ({ thought }: ThoughtProps) => {
           <DistortionsContainer>
             {thought.distortions.map((d) => {
               return (
-                <Badge color="gray" variant="soft" highContrast id={d.id}>
+                <Badge color="gray" variant="soft" highContrast key={d.id}>
                   {d.name}
                 </Badge>
               );

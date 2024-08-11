@@ -22,7 +22,7 @@ export const Thoughts = () => {
       {Object.entries(thoughtsGroupedByDay).map(
         ([date, thoughtsForThatDate]) => {
           return (
-            <ThoughtsGroup>
+            <ThoughtsGroup key={date}>
               <div>{format(parseISO(date), "PPP")}</div>
               <ThoughtsGroupContainer>
                 {thoughtsForThatDate.map((t) => {
