@@ -5,13 +5,23 @@ type GetThoughtsApiResponse = {
     id: string;
     content: string;
     dateCreated: string;
+    distortions: {
+      id: string;
+      name: string;
+    }[];
   }[];
+};
+
+export type DistortionDto = {
+  id: string;
+  name: string;
 };
 
 export type ThoughtDto = {
   id: string;
   content: string;
   dateCreated: string;
+  distortions: DistortionDto[];
 };
 
 type GetThoughtsResponse = {
@@ -29,6 +39,7 @@ export const getThoughts = async () => {
             id: t.id,
             content: t.content,
             dateCreated: t.dateCreated,
+            distortions: t.distortions,
           };
         })
       : [],

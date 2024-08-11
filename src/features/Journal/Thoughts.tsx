@@ -1,3 +1,5 @@
+import { format, parseISO } from "date-fns";
+import { groupBy } from "lodash";
 import styled from "styled-components";
 import { useGetThoughts } from "../../apiHooks/thought/useGetThoughts";
 import { CreateThought } from "./CreateThought";
@@ -8,15 +10,45 @@ export const Thoughts = () => {
 
   if (!thoughtsData) return null;
 
+  const thoughtsGroupedByDay = groupBy(
+    thoughtsData.thoughts,
+    (thought) => thought.dateCreated.split("T")[0]
+  );
+
+  console.log(thoughtsGroupedByDay);
+
   return (
     <ThoughtsContainer>
-      {thoughtsData.thoughts.map((t) => {
-        return <Thought key={t.id} thought={t} />;
-      })}
+      {Object.entries(thoughtsGroupedByDay).map(
+        ([date, thoughtsForThatDate]) => {
+          return (
+            <ThoughtsGroup>
+              <div>{format(parseISO(date), "PPP")}</div>
+              <ThoughtsGroupContainer>
+                {thoughtsForThatDate.map((t) => {
+                  return <Thought key={t.id} thought={t} />;
+                })}
+              </ThoughtsGroupContainer>
+            </ThoughtsGroup>
+          );
+        }
+      )}
       <CreateThought />
     </ThoughtsContainer>
   );
 };
+
+const ThoughtsGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+`;
+
+const ThoughtsGroupContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
 
 const ThoughtsContainer = styled.div`
   display: flex;

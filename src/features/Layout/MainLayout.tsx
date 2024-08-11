@@ -1,3 +1,4 @@
+import { HomeIcon, ReaderIcon } from "@radix-ui/react-icons";
 import { Button } from "@radix-ui/themes";
 import React, { ReactNode } from "react";
 import { Link } from "react-router-dom";
@@ -24,20 +25,28 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
       }}
     >
       <ApplicationRootDiv className="application-root-div">
+        <ApplicationHeader></ApplicationHeader>
         <ResponsiveNavbar>
-          <span>
+          <StyledSpan>
             <Link to="/">
-              <Button>Home</Button>
+              <Button variant="soft">
+                <HomeIcon />
+                Home
+              </Button>
             </Link>
             <Link to="/journal">
-              <Button>Journal</Button>
+              <Button variant="soft">
+                <ReaderIcon />
+                Journal
+              </Button>
             </Link>
-          </span>
+          </StyledSpan>
           <span>
             <LoginSwitch />
           </span>
         </ResponsiveNavbar>
         <MainContentLayout>{children}</MainContentLayout>
+        <ApplicationFooter></ApplicationFooter>
       </ApplicationRootDiv>
     </AuthStateContext.Provider>
   );
@@ -60,6 +69,20 @@ const ResponsiveNavbar = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
+const StyledSpan = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+`;
+
+const ApplicationHeader = styled.div`
+  height: 80px;
+`;
+
+const ApplicationFooter = styled.div`
+  height: 80px;
+`;
+
 const NavbarContainer = styled.div<{ isMobile: boolean }>`
   margin-bottom: 80px;
   display: flex;
@@ -70,7 +93,6 @@ const NavbarContainer = styled.div<{ isMobile: boolean }>`
 const ApplicationRootDiv = styled.div`
   max-width: 900px;
   margin: auto;
-  margin-top: 50px;
 `;
 
 const MainContentLayout = styled.div`
