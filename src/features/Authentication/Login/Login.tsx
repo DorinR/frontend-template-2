@@ -1,4 +1,4 @@
-import { Button } from "@radix-ui/themes";
+import { Button, Flex } from "@radix-ui/themes";
 import { Form, Formik } from "formik";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
@@ -36,7 +36,7 @@ export const Login = () => {
           try {
             const { token } = await login(values);
             setToken(token);
-            navigate("/");
+            navigate("/journal");
           } catch {
             console.log("error");
           }
@@ -45,20 +45,22 @@ export const Login = () => {
       >
         {(props) => (
           <Form>
-            <FormInput
-              label="Email Address"
-              placeholder="enter your email address"
-              name="email"
-            />
-            <FormInput
-              label="Password"
-              placeholder="enter your password"
-              name="password"
-              isPassword
-            />
-            <Button type="submit" loading={isPending}>
-              Login
-            </Button>
+            <Flex gap="5" direction="column">
+              <FormInput
+                label="Email Address"
+                placeholder="enter your email address"
+                name="email"
+              />
+              <FormInput
+                label="Password"
+                placeholder="enter your password"
+                name="password"
+                isPassword
+              />
+              <Button type="submit" loading={isPending}>
+                Login
+              </Button>
+            </Flex>
           </Form>
         )}
       </Formik>

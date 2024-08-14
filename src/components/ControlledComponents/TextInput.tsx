@@ -1,4 +1,4 @@
-import { Text, TextField } from "@radix-ui/themes";
+import { Flex, Text, TextField } from "@radix-ui/themes";
 import { ChangeEventHandler } from "react";
 
 type TextInputProps = {
@@ -19,7 +19,7 @@ export const TextInput = ({
   placeholder,
 }: TextInputProps) => {
   return (
-    <>
+    <Flex gap="1" direction="column">
       <Text as="label">{label}</Text>
       <TextField.Root
         name={name}
@@ -28,6 +28,6 @@ export const TextInput = ({
         onChange={setValue}
         type={isPassword ? "password" : undefined}
       />
-    </>
+    </Flex>
   );
 };

@@ -43,7 +43,7 @@ export const LoginSwitch = () => {
             Account
           </Button>
         </Link>
-        <Link to="/">
+        <Link to="/login">
           <Button
             variant="soft"
             onClick={() => {

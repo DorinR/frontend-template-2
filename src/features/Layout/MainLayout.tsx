@@ -1,4 +1,4 @@
-import { HomeIcon, ReaderIcon } from "@radix-ui/react-icons";
+import { ReaderIcon } from "@radix-ui/react-icons";
 import { Button } from "@radix-ui/themes";
 import React, { ReactNode } from "react";
 import { Link } from "react-router-dom";
@@ -28,14 +28,14 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
         <ApplicationHeader></ApplicationHeader>
         <ResponsiveNavbar>
           <StyledSpan>
-            <Link to="/">
+            {/* <Link to="/">
               <Button variant="soft">
                 <HomeIcon />
                 Home
               </Button>
-            </Link>
+            </Link> */}
             <Link to="/journal">
-              <Button variant="soft">
+              <Button variant="soft" disabled={!token}>
                 <ReaderIcon />
                 Journal
               </Button>
@@ -93,6 +93,7 @@ const NavbarContainer = styled.div<{ isMobile: boolean }>`
 const ApplicationRootDiv = styled.div`
   max-width: 900px;
   margin: auto;
+  padding: 0 50px;
 `;
 
 const MainContentLayout = styled.div`
