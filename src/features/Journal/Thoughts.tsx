@@ -53,7 +53,7 @@ const ThoughtsGroupContainer = styled.div`
 const ThoughtsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 30px;
 
   padding: 0px 20%;
 `;

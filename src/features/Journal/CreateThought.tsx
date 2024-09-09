@@ -1,3 +1,4 @@
+import { PlusIcon } from "@radix-ui/react-icons";
 import { Box, Button, Dialog, Flex } from "@radix-ui/themes";
 import { Formik } from "formik";
 import { get } from "lodash";
@@ -12,14 +13,17 @@ export const CreateThought = () => {
   return (
     <Dialog.Root>
       <Dialog.Trigger>
-        <Button>Add Thought</Button>
+        <Button size="4">
+          <PlusIcon />
+          New Entry
+        </Button>
       </Dialog.Trigger>
 
       <Dialog.Content maxWidth="450px">
-        <Dialog.Title>Edit profile</Dialog.Title>
-        <Dialog.Description size="2" mb="4">
-          Make changes to your profile.
-        </Dialog.Description>
+        <Dialog.Title>New Entry</Dialog.Title>
+        {/* <Dialog.Description size="2" mb="4">
+          What's on your mind?
+        </Dialog.Description> */}
         <Box>
           <Formik
             initialValues={{ thought: "" }}
@@ -38,16 +42,16 @@ export const CreateThought = () => {
             }}
           >
             <Stack>
-              <FormInput name="thought" label="new thought" />
+              <FormInput name="thought" label="What's on your mind?" />
               <Flex gap="3" mt="4" justify="end">
                 <Dialog.Close>
                   <Button variant="soft" color="gray">
-                    Cancel
+                    Back
                   </Button>
                 </Dialog.Close>
                 <Dialog.Close>
                   {/* <Button>Save</Button> */}
-                  <SubmitButton label="Create new entry" />
+                  <SubmitButton label="Save" />
                 </Dialog.Close>
               </Flex>
             </Stack>

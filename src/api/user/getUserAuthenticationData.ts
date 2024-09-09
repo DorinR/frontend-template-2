@@ -1,22 +1,24 @@
 import { backendAccessPoint } from "../backendAccessPoint";
-import { User } from "../models/User";
 
-type GetUserAuthenticationDataBackendResponse = User;
+type GetUserAuthenticationDataBackendResponse = {
+  email: string;
+  id: string;
+  thoughts: string | null;
+};
 
-export const getUserAuthenticationData = async () => {
-  try {
-    const { data } =
-      await backendAccessPoint.post<GetUserAuthenticationDataBackendResponse>(
-        "/user/getUserData",
-      );
-    return {
-      userData: data,
-    };
-  } catch (err) {
-    return {
-      userData: {
-        id: null,
-      },
-    };
-  }
+export type User = {
+  email: string;
+  id: string;
+};
+
+export const getUserAuthenticationData = async (): Promise<User> => {
+  const { data } =
+    await backendAccessPoint.get<GetUserAuthenticationDataBackendResponse>(
+      "/user"
+    );
+
+  return {
+    email: data.email,
+    id: data.id,
+  };
 };

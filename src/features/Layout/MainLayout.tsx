@@ -1,4 +1,4 @@
-import { ReaderIcon } from "@radix-ui/react-icons";
+import { PersonIcon, ReaderIcon } from "@radix-ui/react-icons";
 import { Button } from "@radix-ui/themes";
 import React, { ReactNode } from "react";
 import { Link } from "react-router-dom";
@@ -38,6 +38,12 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
               <Button variant="soft" disabled={!token}>
                 <ReaderIcon />
                 Journal
+              </Button>
+            </Link>
+            <Link to="/connections">
+              <Button variant="soft" disabled={!token}>
+                <PersonIcon />
+                Connections
               </Button>
             </Link>
           </StyledSpan>
